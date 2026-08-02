@@ -109,19 +109,27 @@ int main(void)
     struct aht20_data *d;
 
     d = malloc(sizeof(struct aht20_data));
-    if (!d)
+         if (!d)
         return -1;
 
+    while(1){
     if (aht20_read(buf) < 0) {
-        free(d);
-        return -1;
+
+        sleep(2);
+        continue;   
     }
+
+
+
 
     parse_raw(buf, d);
 
     printf("Temperature: %.2f C\n", d->temperature);
     printf("Humidity:    %.2f %%\n", d->humidity);
+    sleep(2);
+    }
+    
 
-    free(d);
-    return 0;
+     free(d);
+     return 0;
 }
