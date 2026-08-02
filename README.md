@@ -66,3 +66,17 @@ i2cdetect -y 1
 - Port to a Linux kernel module using `i2c_master_send` / `i2c_master_recv`
 - Add device tree overlay for automatic driver binding
 - Expose readings through the IIO subsystem
+
+- Continuous monitoring loop with error recovery (retries on transient failures)
+
+### Wiring
+
+| AHT20 | Raspberry Pi |
+|-------|--------------|
+| VCC   | Pin 1 (3.3V) |
+| GND   | Pin 6        |
+| SDA   | Pin 3 (GPIO2)|
+| SCL   | Pin 5 (GPIO3)|
+
+
+
